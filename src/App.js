@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { constants, useFilters } from './containers/Filters/reducer';
-import Filters from "./containers/Filters/components/Filters";
+import { constants, useFilters } from './containers/FIlters/reducer';
+import Filters from "./containers/FIlters/components/Filters";
 
 export default () => {
     const { state, dispatch } = useFilters();
