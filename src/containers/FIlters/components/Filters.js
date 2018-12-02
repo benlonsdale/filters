@@ -1,53 +1,65 @@
-import React from 'react'
-import Facilities from './Facilities';
-import {constants} from '../reducer';
-import StarRatings from './StarRatings';
+import React from "react";
+import Facilities from "./Facilities";
+import { constants } from "../reducer";
+import StarRatings from "./StarRatings";
 
-export default ({state, dispatch}) => {
-
-
-
+export default ({ state, dispatch }) => {
     return (
         <div>
-            <Facilities 
+            <input
+                value={state.name}
+                onChange={e =>
+                    dispatch({
+                        type: constants.UPDATE,
+                        payload: {
+                            name: e.target.value
+                        }
+                    })
+                }
+            />
+            <Facilities
                 facilities={state.facilities}
-                addFacility={(added) => {
+                addFacility={added => {
                     dispatch({
                         type: constants.UPDATE,
                         payload: {
                             facilities: [...state.facilities, added]
                         }
-                    })
+                    });
                 }}
-                removeFacility={(removed) => {
+                removeFacility={removed => {
                     dispatch({
                         type: constants.UPDATE,
                         payload: {
-                            facilities: state.facilities.filter(item => removed !== item)
+                            facilities: state.facilities.filter(
+                                item => removed !== item
+                            )
                         }
-                    })
+                    });
                 }}
             />
-            
-            <StarRatings            
+
+            <StarRatings
                 starRatings={state.starRatings}
-                add={(added) => {
+                add={added => {
                     dispatch({
                         type: constants.UPDATE,
                         payload: {
                             starRatings: [...state.starRatings, added]
                         }
-                    })
+                    });
                 }}
-                remove={(removed) => {
+                remove={removed => {
                     dispatch({
                         type: constants.UPDATE,
                         payload: {
-                            starRatings: state.starRatings.filter(item => removed !== item)
+                            starRatings: state.starRatings.filter(
+                                item => removed !== item
+                            )
                         }
-                    })
+                    });
                 }}
             />
         </div>
-    )
-}
+    );
+};
