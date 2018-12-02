@@ -1,15 +1,15 @@
 import { useReducer } from "react";
 
 export const constants = {
-    UPDATE: "UPDATE"
+    UPDATE_RESULTS: "UPDATE_RESULTS"
 };
 
-const filterReducer = (state, action) => {
+const resultsReducer = (state, action) => {
     switch (action.type) {
-        case constants.UPDATE: {
+        case constants.UPDATE_RESULTS: {
             return {
                 ...state,
-                ...action.payload
+                hotels: action.payload
             };
         }
         default: {
@@ -18,11 +18,9 @@ const filterReducer = (state, action) => {
     }
 };
 
-export const useFilters = () => {
-    const [state, dispatch] = useReducer(filterReducer, {
-        facilities: [],
-        starRating: [],
-        name: ""
+export const useResults = () => {
+    const [state, dispatch] = useReducer(resultsReducer, {
+        hotels: [],
     });
 
     return {

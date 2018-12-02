@@ -40,12 +40,12 @@ export default ({ state, dispatch }) => {
             />
 
             <StarRatings
-                starRatings={state.starRatings}
+                starRating={state.starRating}
                 add={added => {
                     dispatch({
                         type: constants.UPDATE,
                         payload: {
-                            starRatings: [...state.starRatings, added]
+                            starRating: [...state.starRating, added]
                         }
                     });
                 }}
@@ -53,7 +53,7 @@ export default ({ state, dispatch }) => {
                     dispatch({
                         type: constants.UPDATE,
                         payload: {
-                            starRatings: state.starRatings.filter(
+                            starRating: state.starRating.filter(
                                 item => removed !== item
                             )
                         }
