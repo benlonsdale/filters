@@ -21,7 +21,7 @@ const filterReducer = (state, action) => {
 export const useFilters = () => {
     const [state, dispatch] = useReducer(filterReducer, {
         facilities: [],
-        starRating: [],
+        starRatings: [],
         name: ""
     });
 
