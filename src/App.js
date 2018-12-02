@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import styled from 'styled-components';
 import { useFilters } from "./containers/Filters/reducer";
 import { useResults, constants } from "./containers/Results/reducer";
 import Filters from "./containers/Filters/components/Filters";
@@ -21,13 +22,35 @@ export default () => {
     );
 
     return (
-        <div>
-            <Filters state={filters} dispatch={filterDispatch} />
-            <div id="results">
+        <App>
+            <div id="filters">
+                <Filters state={filters} dispatch={filterDispatch} />
+            </div>
+            <div>
+                <h2>Results</h2>
                 {results.hotels.map((item, index) => (
-                    <div key={index}>{item.name}</div>
+                    <Result key={index}>
+                        <span>{item.name}</span>
+                        <code>{JSON.stringify(item)}</code>
+                    </Result>
                 ))}
             </div>
-        </div>
+        </App>
     );
 };
+
+const App = styled.div`
+    display: flex;
+    #filters {
+        width: 200px;
+    }
+`
+
+const Result = styled.div`
+    span {
+        display: block;
+    }
+    code {
+        font-size: 10px;
+    }
+`

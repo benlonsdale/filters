@@ -6,6 +6,7 @@ import StarRatings from "./StarRatings";
 export default ({ state, dispatch }) => {
     return (
         <div>
+            <h4>Name</h4>
             <input
                 value={state.name}
                 onChange={e =>
@@ -17,6 +18,7 @@ export default ({ state, dispatch }) => {
                     })
                 }
             />
+            <h4>Facilities</h4>
             <Facilities
                 facilities={state.facilities}
                 addFacility={added => {
@@ -38,7 +40,7 @@ export default ({ state, dispatch }) => {
                     });
                 }}
             />
-
+            <h4>Stars</h4>
             <StarRatings
                 starRating={state.starRating}
                 add={added => {

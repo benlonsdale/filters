@@ -11,5 +11,8 @@ export default ({ id, label, ...props }) => {
 };
 
 const Container = styled.div`
-
+    label {
+        display: inline-block;
+        width: 100px;
+    }
 `
