@@ -6,7 +6,7 @@ export default ({removeFacility, addFacility}) => {
         <div>
             <Checkbox 
                 label="Car Park" 
-                value="car park" 
+                name="car park" 
                 onChange={(e) => {
                     if(e.target.checked){
                         addFacility("car park");
@@ -17,7 +17,7 @@ export default ({removeFacility, addFacility}) => {
             />
             <Checkbox 
                 label="Pool" 
-                value="pool" 
+                name="pool" 
                 onChange={(e) => {
                     if(e.target.checked){
                         addFacility("pool");
@@ -28,7 +28,7 @@ export default ({removeFacility, addFacility}) => {
             />
             <Checkbox 
                 label="Gym" 
-                value="gym" 
+                name="gym" 
                 onChange={(e) => {
                     if(e.target.checked){
                         addFacility("gym");
